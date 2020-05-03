@@ -9,3 +9,8 @@ Run `./dockerfile-assemble.sh`. It will update the local copy of the recommended
 ## Clean instance
 
 Run `./reset.sh`. It will reset the database, then restart the web dyno.
+
+## Build & Deploy for Heroku
+
+heroku container:push web
+heroku container:release web
