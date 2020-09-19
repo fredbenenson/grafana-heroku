@@ -12,5 +12,9 @@ Run `./reset.sh`. It will reset the database, then restart the web dyno.
 
 ## Build & Deploy for Heroku
 
+### Pull new version of Grafana
+docker pull grafana/grafana
+
+### Deploy to Heroku:
 heroku container:push web
 heroku container:release web

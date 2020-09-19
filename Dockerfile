@@ -1,4 +1,6 @@
-FROM grafana/grafana:latest
+ARG GRAFANA_VERSION="latest"
+
+FROM grafana/grafana:${GRAFANA_VERSION}
 
 USER root
 
