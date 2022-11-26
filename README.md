@@ -15,6 +15,14 @@ Run `./reset.sh`. It will reset the database, then restart the web dyno.
 ### Pull new version of Grafana
 docker pull grafana/grafana
 
-### Deploy to Heroku:
-heroku container:push web
-heroku container:release web
+## Upgrading & Deploying on Heroku:
+
+1. `docker pull grafana/grafana`
+2. `./dockerfile-update.sh`
+3. `heroku auth:token | docker login --username=_ registry.heroku.com --password-stdin`
+4. Necessary for Apple ARM: `docker buildx build --platform linux/amd64 -t grafana-heroku .`
+5. Check `docker images` for <TAGID>: `docker tag <TAGID> registry.heroku.com/yeast-grafana/web`
+6. `docker push registry.heroku.com/yeast-grafana/web`
+7. `heroku container:push web`
+8. `heroku container:release web`
+
